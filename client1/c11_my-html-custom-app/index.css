@@ -10,30 +10,31 @@
 :root selector for variables
 -------------------------------------------*/
 :root {
-    --Body_background-color: #E5E4E2; /*platinum*/
-   
-    --Header_background-color: red;
-    --Header_hover-color: white;
-    --HeaderLogo-image: url( 'assets/images/formr-logo-blue.gif' );
-    --HeaderLogo_margin: 0px 0px 0px 30px;
-    --HeaderLogo-FontFamily: "Roboto Slab";
-    --HeaderList-font-size: 1.2rem;
-  
-    --Section1_background-color: blue;
-    --Section1_background-image: url( 'assets/images/monaco-blue-soft.jpg' );
-  
-    --Section2_background-color: lightgray;
-    --Section2Paragraph-font-color: #ff7034;  /* dark orange */
-  
-    --Footer_background-color: green;
-    --Footer_hover-color: white;
-    --FooterList-font-size: .9rem;  
-    
-    --GlobalFontFamily: "Frank Ruhl Libre", "EB Garamond";
+  --Body_background-color: #E5E4E2; /*platinum*/
+ 
+  --Header_background-color: #FF7034; /*dark orange*/
+  --Header_hover-color: white;
+  --HeaderLogo-image: url( 'assets/images/formr-logo-blue.gif' );
+  --HeaderLogo_margin: 0px 0 0 3px;
+  --HeaderLogo-FontFamily: "Roboto Slab";
+  --HeaderList-font-size: 1.2rem;
 
-    --Button_Logo_font-color: whitesmoke;
+  --Section1_background-color: whitesmoke;
+  --Section1_background-image: url( 'assets/images/monaco-blue-soft.jpg' );
+
+  --Section2_background-color: whitesmoke;
+  --Section2Paragraph-font-color: #ff7034;  /* dark orange */
+
+  --Footer_background-color: #FF7034; /*dark orange*/
+  --Footer_hover-color: white;
+  --FooterList-font-size: .9rem;  
+  
+  --GlobalFontFamily: "Frank Ruhl Libre", "EB Garamond";
+
+  --Button_Logo_font-color: whitesmoke;
 } 
 /* END REPLACE :root =====================*/
+
 
 
 /*=============================================*/
@@ -295,14 +296,35 @@ The .Section2 h2 properites
 /* END S2-1 .Section2 h2=========================*/
 
 
-/*===============================================*/
-/* S2-2 START BLOCK ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+/*===========================================*/
+/* S2-2 START BLOCK ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
 /* S2-2 INSERT Point - Section2Paragraph */
+/*-----------------------------------------
+The .Section2Paragraph properites
+------------------------------------------*/
+.Section2Paragraph {
+  font-family: var(--GlobalFontFamily);
+  margin-top: 0px;
+  font-size: 1.3rem;
+  color: var(--Section2Paragraph-font-color); /* dark orange*/
+  font-weight: bolder;
+  padding-top: 1rem;
+}
 
-/* INSERT Point - Section2Paragraph::first-letter/line */
-/* S2-2 END BLOCK ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+/*=======================================*/
+/* INSERT Point - Section2Paragraph::firstLetter/line */
+/*-----------------------------------------
+The .Section2Paragraph::firstLetter/line properites
+------------------------------------------*/
+.Section2Paragraph::first-line {
+font-size: 125%;
+}
 
-/* S2 END BLOCK ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+.Section2Paragraph::first-letter {
+font-size: 150%;
+}
+/* S2-2 END BLOCK ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/
+
 
 
 /*===============================================*/
