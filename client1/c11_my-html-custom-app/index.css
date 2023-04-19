@@ -222,15 +222,18 @@ The .HeaderNavListItemCTA properties
 The .Section1 properites
 -------------------------------------------------*/
 .Section1 {
-    background: var(--Section1_background-image);
-    background-color: var(--Section1_background-color);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 46%;
-    position: relative;
-    top: 80px;
+  background: var(--Section1_background-image);
+  background-color: var(--Section1_background-color);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 46%;
+  position: relative;
+  top: 80px;
+}
+.Section1 h2 {
+  padding: 180px 250px 0px 0px;
 }
 /* END S1R-1 .Section1 ===========================*/
 

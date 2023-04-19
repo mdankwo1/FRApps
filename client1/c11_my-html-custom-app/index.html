@@ -11,8 +11,18 @@
         <link rel="stylesheet"    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
         <link rel="stylesheet"    href="index.css">
 
+
     <!-- INSERT Point - DATA FETCHING -->
+    <script type="module">                          
+        window.getCountries = async function ( ) {      // Must define async function to use with await below            
+                var pResponse  = await          fetch( './assets/data/db.json' )
+                var pJSON      = await pResponse.json( )           
+                var nRows      = 9999
+                var mCountries = pJSON.countries.filter( (pCountry, i) => { return i < nRows } )
+                return mCountries   }          
+        </script>        
     <!-- END INSERT Point - DATA FETCHING -->
+
     </head>
 
     <body>    
@@ -62,22 +72,52 @@
 
     <!-- REPLACE Point - Section1 -->
     <div class="Section1">
-        <h2 class="Section1ImageText">welcome to Michael's FormR...</h2>
+        <h2 class="Section1ImageText">world.countries_view</h2>
     </div>
 <!-- END REPLACE Point - Section1 -->
 
 
-    <!-- REPLACE Point - Section2 -->        
-    <div class="Section2">
-        <h2></h2>
-        <p class="Section2Paragraph">
-            The quick brown fox jumped over the lazy dog.<br>
-            The quick brown fox jumped over the lazy dog.<br>
-            The quick brown fox jumped over the lazy dog.<br>
-            The quick brown fox jumped over the lazy dog.
-        </p>  
+<!-- REPLACE Point - Section2 -->        
+<div class="Section2">
+    <!-- COUNTRY DATA RENDERING-->  
+    <div class="countryList">
+        <table class="CountryTable" cellspacing="0">
+            <tbody>
+            <tr>
+                <th class="CountryCode-th">Code</th>
+                <th class="Country-th">Country</th>
+                <th class="Continent-th">Continent</th>
+                <th class="Area-th">Area (mi<sup>2</sup>)</th>
+                <th class="Population-th">Population</th>                
+            </tr>
+        <tbody id="Countries"></tbody>
+        </table>
+
+        <script type="module"> 
+            var  mCountries  =  await getCountries( )     // Must assign mCountries here with await                     
+            var  mHTMLrows   =  mCountries.map(  fmtCountry )
+                    mHTMLrows.push ( `<tr class="lastRow" ><td colspan="5"></td></tr>` )
+            var  pCountries           =  document.getElementById( "Countries" )
+                    pCountries.innerHTML =  mHTMLrows.join( "\n" )
+    
+        function  fmtCountry( pCountry, i ) {           
+            var  aColor      =  i % 2 == 1 ? '#EFF8F8'  : '#DEEEF7'
+            var  aID         = `id="R${ `${ i + 1 }`.padStart( 3, "0" )}"`
+            var  aHTMLrow    = `
+            <tr ${aID} Class="${`eachRow ${aColor}`}">
+                <td bgColor="${aColor}" class="CountryCode-td"> ${ pCountry.Code }</td>
+                <td bgColor="${aColor}" class="Country-td"> ${ pCountry.Name }</td>
+                <td bgColor="${aColor}" class="Continent-td"> ${ pCountry.Continent }</td>
+                <td bgColor="${aColor}" class="Area-td"> ${ pCountry.SurfaceArea }</td>
+                <td bgColor="${aColor}" class="Population-td"> ${ pCountry.Population }</td>
+            </tr> `
+        return  aHTMLrow }
+        </script>            
     </div>
-<!-- END REPLACE Point - Section2 -->       
+    <!-- END COUNTRY DATA RENDERING -->  
+</div>
+<!-- END REPLACE Point - Section2 -->
+   
 
 <!-- REPLACE Point - Footer -->
 <div class="Footer">
